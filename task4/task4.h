@@ -8,5 +8,6 @@
 
 void task4();
 
+long double *multiply(int size, long double **matrix, long double *vector);
 
 #endif //VVSU_ZBIS_CPP_TASK4_H

@@ -20,28 +20,44 @@ void task4() {
         return;
     }
 
-    auto **matrix = new long double *[n];
+    auto matrix = new long double *[n]();
     std::cout << "Enter matrix" << std::endl;
     for (int i = 0; i < n; i++) {
-        matrix[i] = new long double[n];
+        matrix[i] = new long double[n]();
         for (int j = 0; j < n; j++) {
             std::cout << "enter matrix[" << i << "][" << j << "]: ";
-            std::cin >> matrix[i][j];
+            std::cin >> *(*(matrix + i) + j);
         }
     }
 
-    auto *vector = new long double[n];
+    auto vector = new long double[n]();
     std::cout << "Enter vector" << std::endl;
     for (int i = 0; i < n; i++) {
-        std::cout << "enter vector[" << i << "]: ";
-        std::cin >> vector[i];
+        std::cout << "vector[" << i << "]: ";
+        std::cin >> *(vector + i);
     }
 
-    // todo
+    auto result = multiply(n, matrix, vector);
+    std::cout << "Result:" << std::endl;
+    for (int i = 0; i < n; ++i) {
+        std::cout << *(result + i) << std::endl;
+    }
 
     for (int i = 0; i < n; i++) {
         delete[] matrix[i];
     }
     delete[] matrix;
     delete[] vector;
+    delete[] result;
+}
+
+long double *multiply(int size, long double **matrix, long double *vector) {
+    auto result = new long double[size]();
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            *(result + i) += *(vector + j) * (*(*(matrix + i) + j));
+        }
+    }
+
+    return result;
 }
