@@ -2,13 +2,14 @@
 #include "task1/task1.h"
 #include "task2/task21.h"
 #include "task2/task22.h"
+#include "task3/task3.h"
 
 int main() {
     int task;
     while (true) {
         std::cout << "Enter task number: ";
 //        std::cin >> task;
-        task = 22;
+        task = 3;
         switch (task) {
             case 0:
                 std::cout << "Bye" << std::endl;
@@ -28,6 +29,10 @@ int main() {
 
             case 22:
                 task22();
+                break;
+
+            case 3:
+                task3();
                 break;
         }
     }
