@@ -22,6 +22,7 @@ void task3() {
 
     if (a > (b + c) || b > (a + c) || c > (a + b)) {
         std::cout << "triangle inequality test failed" << std::endl;
+        return;
     }
 
     std::cout << "Perimeter: " << perimeter(a, b, c) << ", Square: " << square(a, b, c) << std::endl;
