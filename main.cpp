@@ -5,13 +5,14 @@
 #include "task3/task3.h"
 #include "task4/task4.h"
 #include "task5/task5.h"
+#include "task61/task61.h"
 
 int main() {
     int task;
     while (true) {
         std::cout << "Enter task number: ";
 //        std::cin >> task;
-        task = 5;
+        task = 61;
         switch (task) {
             case 0:
                 std::cout << "Bye" << std::endl;
@@ -43,6 +44,10 @@ int main() {
 
             case 5:
                 task5();
+                break;
+
+            case 61:
+                task61();
                 break;
         }
     }
